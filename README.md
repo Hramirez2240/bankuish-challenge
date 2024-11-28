@@ -9,7 +9,9 @@ I already send it my user-authentication file but you can add your own if you ha
 
 After you add your firebase-authentication.json file, you have to go to the .env file and change the value of the 'FIREBASE_API_KEY' variable and add your own api key or the one that I sent in the mail.
 
-The last step to run the project use to execute this command:
+Another step is to open your docker desktop application before executing the docker compose command.
+
+You need to run this command to execute the project as a last step:
 ```bash
 $ docker compose up
 ```
