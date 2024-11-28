@@ -8,7 +8,8 @@ import { RegisterUserDto } from "../model/dto/register-user.dto";
 import { RegisterUserResponseDto } from "../model/dto/register-user-response.dto";
 import { BaseResponseDto } from "../model/dto/common/base-response.dto";
 import { Constants } from "../config/constants";
-import { getRepositoryToken } from '@nestjs/typeorm';
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { User } from "../model/entities/user";
 
 describe('AuthController', () => {
     let app: INestApplication;
@@ -38,10 +39,18 @@ describe('AuthController', () => {
 
     beforeAll(async () => {
         const module: TestingModule = await Test.createTestingModule({
-            imports: [ConfigModule.forRoot()],
+            imports: [ConfigModule.forRoot(), TypeOrmModule.forRoot({
+                type: 'postgres',
+                host: 'localhost',
+                port: 5432,
+                username: 'postgres',
+                password: '',
+                database: 'e2e_test',
+                entities: [User],
+                synchronize: false,
+            }), TypeOrmModule.forFeature([User]),],
         })
         .overrideProvider(AuthService).useValue(mockService)
-        // .overrideProvider(getRepositoryToken(User)).useValue(mockRepository())
         .compile();
 
         app = module.createNestApplication();
@@ -73,6 +82,7 @@ describe('AuthController', () => {
 
     describe('registerUser', () => {
         it('should register user successfully', async () => {
+            jest.spyOn(service, 'registerUser').mockResolvedValueOnce(registerUserResponseDto);
             const response = await request(app.getHttpServer)
             .post('/api/auth/register')
             .set('Content-Type', 'application/json')

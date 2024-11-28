@@ -1,12 +1,12 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
-import { AuthController } from "src/auth/auth.controller";
-import { AuthService } from "src/auth/auth.service";
-import { AuthGuard } from "src/auth/guards/auth.guard";
-import configuration from "src/config/configuration";
-import { Constants } from "src/config/constants";
+import { AuthController } from "../../auth/auth.controller";
+import { AuthService } from "../../auth/auth.service";
+import { AuthGuard } from "../../auth/guards/auth.guard";
+import configuration from "../../config/configuration";
+import { Constants } from "../../config/constants";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { User } from "src/model/entities/user";
+import { User } from "../../model/entities/user";
 import { Repository } from "typeorm";
 
 @Module({

@@ -1,7 +1,7 @@
 import { HttpStatus, Inject, Injectable, NotFoundException } from "@nestjs/common";
-import { Constants } from "src/config/constants";
-import { BaseResponseDto } from "src/model/dto/common/base-response.dto";
-import { User } from "src/model/entities/user";
+import { Constants } from "../config/constants";
+import { BaseResponseDto } from "../model/dto/common/base-response.dto";
+import { User } from "../model/entities/user";
 import { Repository } from "typeorm";
 import * as firebaseAdmin from 'firebase-admin';
 import { InjectRepository } from "@nestjs/typeorm";
