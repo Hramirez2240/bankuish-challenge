@@ -28,8 +28,8 @@ Also you can visit: http://localhost:5050/browser/
 to get to pgAdmin.
 
 Here is the pgAdmin credentials:
-Email = admin@admin.com
-Password = pgadmin4
+Email: admin@admin.com
+Password: pgadmin4
 
 ## Compile and run local project
 
