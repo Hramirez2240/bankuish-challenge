@@ -9,11 +9,17 @@ You need to follow this steps to run the containeraized project:
 1. The first thing you need to do after cloning the repo is add your user-authentication.json file in the root directory, since this project use firebase authentication this file is crucial.
 I already send it my user-authentication file but you can add your own if you have your firebase web app created.
 
-2. After you add your firebase-authentication.json file, you have to go to the .env file and change the value of the 'FIREBASE_API_KEY' variable and add your own api key or the one that I sent in the mail.
+Keep in mind that if you add your own user-authentication.json file, you have to change the reference of it in the main.ts file.
+```code
+  const firebaseKeyFilePath =
+    './user-authentication-e519e-firebase-adminsdk-8rowo-df52cf0aef.json';
+```
 
-3. Another step is to open your docker desktop application before executing the docker compose command.
+3. After you add your firebase-authentication.json file, you have to go to the .env file and change the value of the 'FIREBASE_API_KEY' variable and add your own api key or the one that I sent in the mail.
 
-4. You need to run this command to execute the project as a last step:
+4. Another step is to open your docker desktop application before executing the docker compose command.
+
+5. You need to run this command to execute the project as a last step:
 ```bash
 $ docker compose up
 ```
