@@ -21,6 +21,8 @@ This command will install all neccesary dependencies in the project, for example
 2. The PostgreSQL server
 3. PgAdmin to visualize the different databases and tables.
 
+Will create and run a container that will contain that 3 images previously created.
+
 After you run this command you won't have any problem to access to the services
 
 You can visit this: http://localhost:3000/api
@@ -30,7 +32,9 @@ Also you can visit: http://localhost:5050/browser/
 to get to pgAdmin.
 
 Here is the pgAdmin credentials:
+
 Email: admin@admin.com
+
 Password: pgadmin4
 
 ## Compile and run local project
@@ -48,3 +52,5 @@ If you want to compile the project you have to run this command:
 ```bash
 $ npm run start:dev
 ```
+
+Remember to change postgreSQL server from db to localhost.
